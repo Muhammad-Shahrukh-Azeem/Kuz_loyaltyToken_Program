@@ -1,0 +1,1265 @@
+{
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "feeBefore",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "feeAfter",
+          "type": "uint256"
+        }
+      ],
+      "name": "feeUpdated",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "getfee",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "renounceOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_fee",
+          "type": "uint256"
+        }
+      ],
+      "name": "setFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x60806040526107d060015534801561001657600080fd5b5061002033610025565b610075565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b6102c1806100846000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c80630cda45c81461005c57806369fe0e2d14610072578063715018a6146100875780638da5cb5b1461008f578063f2fde38b146100aa575b600080fd5b6001546040519081526020015b60405180910390f35b610085610080366004610242565b6100bd565b005b610085610106565b6000546040516001600160a01b039091168152602001610069565b6100856100b836600461025b565b61011a565b6100c5610198565b600181905560408051828152602081018390527fed28c14db89870da08d76b69e3f96d95cbb779778f62a9ea4d4d41dc082d088a910160405180910390a150565b61010e610198565b61011860006101f2565b565b610122610198565b6001600160a01b03811661018c5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084015b60405180910390fd5b610195816101f2565b50565b6000546001600160a01b031633146101185760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726044820152606401610183565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561025457600080fd5b5035919050565b60006020828403121561026d57600080fd5b81356001600160a01b038116811461028457600080fd5b939250505056fea264697066735822122057ff338a105ddb480f8160ebdbf1198e985c98b670f5c3dadf3716636e0b5b5864736f6c634300080e0033",
+    "sourceMap": "134:1200:16:-:0;;;187:4;164:27;;134:1200;;;;;;;;;-1:-1:-1;936:32:7;719:10:13;936:18:7;:32::i;:::-;134:1200:16;;2433:187:7;2506:16;2525:6;;-1:-1:-1;;;;;2541:17:7;;;-1:-1:-1;;;;;;2541:17:7;;;;;;2573:40;;2525:6;;;;;;;2573:40;;2506:16;2573:40;2496:124;2433:187;:::o;134:1200:16:-;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c80630cda45c81461005c57806369fe0e2d14610072578063715018a6146100875780638da5cb5b1461008f578063f2fde38b146100aa575b600080fd5b6001546040519081526020015b60405180910390f35b610085610080366004610242565b6100bd565b005b610085610106565b6000546040516001600160a01b039091168152602001610069565b6100856100b836600461025b565b61011a565b6100c5610198565b600181905560408051828152602081018390527fed28c14db89870da08d76b69e3f96d95cbb779778f62a9ea4d4d41dc082d088a910160405180910390a150565b61010e610198565b61011860006101f2565b565b610122610198565b6001600160a01b03811661018c5760405162461bcd60e51b815260206004820152602660248201527f4f776e61626c653a206e6577206f776e657220697320746865207a65726f206160448201526564647265737360d01b60648201526084015b60405180910390fd5b610195816101f2565b50565b6000546001600160a01b031633146101185760405162461bcd60e51b815260206004820181905260248201527f4f776e61626c653a2063616c6c6572206973206e6f7420746865206f776e65726044820152606401610183565b600080546001600160a01b038381166001600160a01b0319831681178455604051919092169283917f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e09190a35050565b60006020828403121561025457600080fd5b5035919050565b60006020828403121561026d57600080fd5b81356001600160a01b038116811461028457600080fd5b939250505056fea264697066735822122057ff338a105ddb480f8160ebdbf1198e985c98b670f5c3dadf3716636e0b5b5864736f6c634300080e0033",
+    "sourceMap": "134:1200:16:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1255:77;1322:3;;1255:77;;160:25:21;;;148:2;133:18;1255:77:16;;;;;;;;380:112;;;;;;:::i;:::-;;:::i;:::-;;1831:101:7;;;:::i;1201:85::-;1247:7;1273:6;1201:85;;-1:-1:-1;;;;;1273:6:7;;;527:51:21;;515:2;500:18;1201:85:7;381:203:21;2081:198:7;;;;;;:::i;:::-;;:::i;380:112:16:-;1094:13:7;:11;:13::i;:::-;439:3:16::1;:10:::0;;;464:21:::1;::::0;;1054:25:21;;;1110:2;1095:18;;1088:34;;;464:21:16::1;::::0;1027:18:21;464:21:16::1;;;;;;;380:112:::0;:::o;1831:101:7:-;1094:13;:11;:13::i;:::-;1895:30:::1;1922:1;1895:18;:30::i;:::-;1831:101::o:0;2081:198::-;1094:13;:11;:13::i;:::-;-1:-1:-1;;;;;2169:22:7;::::1;2161:73;;;::::0;-1:-1:-1;;;2161:73:7;;1335:2:21;2161:73:7::1;::::0;::::1;1317:21:21::0;1374:2;1354:18;;;1347:30;1413:34;1393:18;;;1386:62;-1:-1:-1;;;1464:18:21;;;1457:36;1510:19;;2161:73:7::1;;;;;;;;;2244:28;2263:8;2244:18;:28::i;:::-;2081:198:::0;:::o;1359:130::-;1247:7;1273:6;-1:-1:-1;;;;;1273:6:7;719:10:13;1422:23:7;1414:68;;;;-1:-1:-1;;;1414:68:7;;1742:2:21;1414:68:7;;;1724:21:21;;;1761:18;;;1754:30;1820:34;1800:18;;;1793:62;1872:18;;1414:68:7;1540:356:21;2433:187:7;2506:16;2525:6;;-1:-1:-1;;;;;2541:17:7;;;-1:-1:-1;;;;;;2541:17:7;;;;;;2573:40;;2525:6;;;;;;;2573:40;;2506:16;2573:40;2496:124;2433:187;:::o;196:180:21:-;255:6;308:2;296:9;287:7;283:23;279:32;276:52;;;324:1;321;314:12;276:52;-1:-1:-1;347:23:21;;196:180;-1:-1:-1;196:180:21:o;589:286::-;648:6;701:2;689:9;680:7;676:23;672:32;669:52;;;717:1;714;707:12;669:52;743:23;;-1:-1:-1;;;;;795:31:21;;785:42;;775:70;;841:1;838;831:12;775:70;864:5;589:286;-1:-1:-1;;;589:286:21:o",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "getfee()": "0cda45c8",
+    "owner()": "8da5cb5b",
+    "renounceOwnership()": "715018a6",
+    "setFee(uint256)": "69fe0e2d",
+    "transferOwnership(address)": "f2fde38b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.14+commit.80d49f37\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"previousOwner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"OwnershipTransferred\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeBefore\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"feeAfter\",\"type\":\"uint256\"}],\"name\":\"feeUpdated\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"getfee\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"renounceOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_fee\",\"type\":\"uint256\"}],\"name\":\"setFee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newOwner\",\"type\":\"address\"}],\"name\":\"transferOwnership\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"owner()\":{\"details\":\"Returns the address of the current owner.\"},\"renounceOwnership()\":{\"details\":\"Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner.\"},\"setFee(uint256)\":{\"params\":{\"_fee\":\"new listing fee\"}},\"transferOwnership(address)\":{\"details\":\"Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"setFee(uint256)\":{\"notice\":\"Method setting and Updating fee\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/Fee.sol\":\"Fee\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":forge-std/=lib/forge-std/src/\"]},\"sources\":{\"node_modules/@openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2\",\"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y\"]},\"node_modules/@openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92\",\"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3\"]},\"src/Fee.sol\":{\"keccak256\":\"0x6bf980ab5f4328bf56430c97d5f4a657749cd56613ae4bc6a0fe708d98fefe1d\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://d8aa3723b28acd8a8b9d9b507c8bccf26e6b6b971a1af0246e94eed46dd99251\",\"dweb:/ipfs/QmPBSNXgor5kcT74unPhAVfHT9VKRgX9ThRSKArkLP5eGh\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.14+commit.80d49f37"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "previousOwner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "OwnershipTransferred",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "feeBefore",
+              "type": "uint256",
+              "indexed": false
+            },
+            {
+              "internalType": "uint256",
+              "name": "feeAfter",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "feeUpdated",
+          "anonymous": false
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getfee",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "owner",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "renounceOwnership"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "_fee",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setFee"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "newOwner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferOwnership"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "owner()": {
+            "details": "Returns the address of the current owner."
+          },
+          "renounceOwnership()": {
+            "details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+          },
+          "setFee(uint256)": {
+            "params": {
+              "_fee": "new listing fee"
+            }
+          },
+          "transferOwnership(address)": {
+            "details": "Transfers ownership of the contract to a new account (`newOwner`). Can only be called by the current owner."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "setFee(uint256)": {
+            "notice": "Method setting and Updating fee"
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":forge-std/=lib/forge-std/src/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/Fee.sol": "Fee"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "node_modules/@openzeppelin/contracts/access/Ownable.sol": {
+        "keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+        "urls": [
+          "bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+          "dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+        ],
+        "license": "MIT"
+      },
+      "node_modules/@openzeppelin/contracts/utils/Context.sol": {
+        "keccak256": "0xe2e337e6dde9ef6b680e07338c493ebea1b5fd09b43424112868e9cc1706bca7",
+        "urls": [
+          "bzz-raw://6df0ddf21ce9f58271bdfaa85cde98b200ef242a05a3f85c2bc10a8294800a92",
+          "dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
+        ],
+        "license": "MIT"
+      },
+      "src/Fee.sol": {
+        "keccak256": "0x6bf980ab5f4328bf56430c97d5f4a657749cd56613ae4bc6a0fe708d98fefe1d",
+        "urls": [
+          "bzz-raw://d8aa3723b28acd8a8b9d9b507c8bccf26e6b6b971a1af0246e94eed46dd99251",
+          "dweb:/ipfs/QmPBSNXgor5kcT74unPhAVfHT9VKRgX9ThRSKArkLP5eGh"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/Fee.sol",
+    "id": 24389,
+    "exportedSymbols": {
+      "Context": [
+        24202
+      ],
+      "Fee": [
+        24388
+      ],
+      "Ownable": [
+        23339
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "39:1296:16",
+    "nodes": [
+      {
+        "id": 24309,
+        "nodeType": "PragmaDirective",
+        "src": "39:23:16",
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".7"
+        ]
+      },
+      {
+        "id": 24310,
+        "nodeType": "ImportDirective",
+        "src": "64:68:16",
+        "absolutePath": "node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "file": "../node_modules/@openzeppelin/contracts/access/Ownable.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 24389,
+        "sourceUnit": 23340,
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "id": 24388,
+        "nodeType": "ContractDefinition",
+        "src": "134:1200:16",
+        "nodes": [
+          {
+            "id": 24315,
+            "nodeType": "VariableDeclaration",
+            "src": "164:27:16",
+            "constant": false,
+            "mutability": "mutable",
+            "name": "fee",
+            "nameLocation": "181:3:16",
+            "scope": 24388,
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 24313,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "164:7:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "value": {
+              "hexValue": "32303030",
+              "id": 24314,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "number",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "187:4:16",
+              "typeDescriptions": {
+                "typeIdentifier": "t_rational_2000_by_1",
+                "typeString": "int_const 2000"
+              },
+              "value": "2000"
+            },
+            "visibility": "internal"
+          },
+          {
+            "id": 24321,
+            "nodeType": "EventDefinition",
+            "src": "221:54:16",
+            "anonymous": false,
+            "eventSelector": "ed28c14db89870da08d76b69e3f96d95cbb779778f62a9ea4d4d41dc082d088a",
+            "name": "feeUpdated",
+            "nameLocation": "227:10:16",
+            "parameters": {
+              "id": 24320,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24317,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "feeBefore",
+                  "nameLocation": "246:9:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24321,
+                  "src": "238:17:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24316,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "238:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 24319,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "feeAfter",
+                  "nameLocation": "265:8:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24321,
+                  "src": "257:16:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24318,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "257:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "237:37:16"
+            }
+          },
+          {
+            "id": 24339,
+            "nodeType": "FunctionDefinition",
+            "src": "380:112:16",
+            "body": {
+              "id": 24338,
+              "nodeType": "Block",
+              "src": "429:63:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 24331,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 24329,
+                      "name": "fee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24315,
+                      "src": "439:3:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 24330,
+                      "name": "_fee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24324,
+                      "src": "445:4:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "439:10:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 24332,
+                  "nodeType": "ExpressionStatement",
+                  "src": "439:10:16"
+                },
+                {
+                  "eventCall": {
+                    "arguments": [
+                      {
+                        "id": 24334,
+                        "name": "fee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 24315,
+                        "src": "475:3:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      {
+                        "id": 24335,
+                        "name": "_fee",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 24324,
+                        "src": "480:4:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      ],
+                      "id": 24333,
+                      "name": "feeUpdated",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24321,
+                      "src": "464:10:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_event_nonpayable$_t_uint256_$_t_uint256_$returns$__$",
+                        "typeString": "function (uint256,uint256)"
+                      }
+                    },
+                    "id": 24336,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "464:21:16",
+                    "tryCall": false,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_tuple$__$",
+                      "typeString": "tuple()"
+                    }
+                  },
+                  "id": 24337,
+                  "nodeType": "EmitStatement",
+                  "src": "459:26:16"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 24322,
+              "nodeType": "StructuredDocumentation",
+              "src": "281:93:16",
+              "text": " @notice Method setting and Updating fee\n @param _fee new listing fee"
+            },
+            "functionSelector": "69fe0e2d",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [
+              {
+                "id": 24327,
+                "kind": "modifierInvocation",
+                "modifierName": {
+                  "id": 24326,
+                  "name": "onlyOwner",
+                  "nodeType": "IdentifierPath",
+                  "referencedDeclaration": 23258,
+                  "src": "419:9:16"
+                },
+                "nodeType": "ModifierInvocation",
+                "src": "419:9:16"
+              }
+            ],
+            "name": "setFee",
+            "nameLocation": "389:6:16",
+            "parameters": {
+              "id": 24325,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24324,
+                  "mutability": "mutable",
+                  "name": "_fee",
+                  "nameLocation": "404:4:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24339,
+                  "src": "396:12:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24323,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "396:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "395:14:16"
+            },
+            "returnParameters": {
+              "id": 24328,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "429:0:16"
+            },
+            "scope": 24388,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 24362,
+            "nodeType": "FunctionDefinition",
+            "src": "657:251:16",
+            "body": {
+              "id": 24361,
+              "nodeType": "Block",
+              "src": "780:128:16",
+              "statements": [
+                {
+                  "assignments": [
+                    24348
+                  ],
+                  "declarations": [
+                    {
+                      "constant": false,
+                      "id": 24348,
+                      "mutability": "mutable",
+                      "name": "percentageToTransfer",
+                      "nameLocation": "798:20:16",
+                      "nodeType": "VariableDeclaration",
+                      "scope": 24361,
+                      "src": "790:28:16",
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      },
+                      "typeName": {
+                        "id": 24347,
+                        "name": "uint256",
+                        "nodeType": "ElementaryTypeName",
+                        "src": "790:7:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      },
+                      "visibility": "internal"
+                    }
+                  ],
+                  "id": 24352,
+                  "initialValue": {
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 24351,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "hexValue": "3130303030",
+                      "id": 24349,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": true,
+                      "kind": "number",
+                      "lValueRequested": false,
+                      "nodeType": "Literal",
+                      "src": "821:5:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_rational_10000_by_1",
+                        "typeString": "int_const 10000"
+                      },
+                      "value": "10000"
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "-",
+                    "rightExpression": {
+                      "id": 24350,
+                      "name": "fee",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 24315,
+                      "src": "829:3:16",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "821:11:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "nodeType": "VariableDeclarationStatement",
+                  "src": "790:42:16"
+                },
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 24358,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "components": [
+                            {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "id": 24355,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "leftExpression": {
+                                "id": 24353,
+                                "name": "_AmountToTransfer",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 24342,
+                                "src": "851:17:16",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "nodeType": "BinaryOperation",
+                              "operator": "*",
+                              "rightExpression": {
+                                "id": 24354,
+                                "name": "percentageToTransfer",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 24348,
+                                "src": "871:20:16",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "src": "851:40:16",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "id": 24356,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "850:42:16",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "/",
+                        "rightExpression": {
+                          "hexValue": "3130303030",
+                          "id": 24357,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "895:5:16",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_10000_by_1",
+                            "typeString": "int_const 10000"
+                          },
+                          "value": "10000"
+                        },
+                        "src": "850:50:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 24359,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "849:52:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 24346,
+                  "id": 24360,
+                  "nodeType": "Return",
+                  "src": "842:59:16"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 24340,
+              "nodeType": "StructuredDocumentation",
+              "src": "498:154:16",
+              "text": " @notice Method for Calculating amount After fee deduction\n @param _AmountToTransfer This is the amount the user wants to transfer"
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculateAfterfeeDeduction",
+            "nameLocation": "666:26:16",
+            "parameters": {
+              "id": 24343,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24342,
+                  "mutability": "mutable",
+                  "name": "_AmountToTransfer",
+                  "nameLocation": "701:17:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24362,
+                  "src": "693:25:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24341,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "693:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "692:27:16"
+            },
+            "returnParameters": {
+              "id": 24346,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24345,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24362,
+                  "src": "767:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24344,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "767:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "766:9:16"
+            },
+            "scope": 24388,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 24379,
+            "nodeType": "FunctionDefinition",
+            "src": "1073:177:16",
+            "body": {
+              "id": 24378,
+              "nodeType": "Block",
+              "src": "1191:59:16",
+              "statements": [
+                {
+                  "expression": {
+                    "components": [
+                      {
+                        "commonType": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        },
+                        "id": 24375,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "leftExpression": {
+                          "components": [
+                            {
+                              "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              },
+                              "id": 24372,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "leftExpression": {
+                                "id": 24370,
+                                "name": "_AmountToTransfer",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 24365,
+                                "src": "1210:17:16",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "nodeType": "BinaryOperation",
+                              "operator": "*",
+                              "rightExpression": {
+                                "id": 24371,
+                                "name": "fee",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 24315,
+                                "src": "1230:3:16",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "src": "1210:23:16",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "id": 24373,
+                          "isConstant": false,
+                          "isInlineArray": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "TupleExpression",
+                          "src": "1209:25:16",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "BinaryOperation",
+                        "operator": "/",
+                        "rightExpression": {
+                          "hexValue": "3130303030",
+                          "id": 24374,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1237:5:16",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_10000_by_1",
+                            "typeString": "int_const 10000"
+                          },
+                          "value": "10000"
+                        },
+                        "src": "1209:33:16",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_uint256",
+                          "typeString": "uint256"
+                        }
+                      }
+                    ],
+                    "id": 24376,
+                    "isConstant": false,
+                    "isInlineArray": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "nodeType": "TupleExpression",
+                    "src": "1208:35:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 24369,
+                  "id": 24377,
+                  "nodeType": "Return",
+                  "src": "1201:42:16"
+                }
+              ]
+            },
+            "documentation": {
+              "id": 24363,
+              "nodeType": "StructuredDocumentation",
+              "src": "914:154:16",
+              "text": " @notice Method for Calculating amount After fee deduction\n @param _AmountToTransfer This is the amount the user wants to transfer"
+            },
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calculateFeeForAmount",
+            "nameLocation": "1082:21:16",
+            "parameters": {
+              "id": 24366,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24365,
+                  "mutability": "mutable",
+                  "name": "_AmountToTransfer",
+                  "nameLocation": "1112:17:16",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24379,
+                  "src": "1104:25:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24364,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1104:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1103:27:16"
+            },
+            "returnParameters": {
+              "id": 24369,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24368,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24379,
+                  "src": "1178:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24367,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1177:9:16"
+            },
+            "scope": 24388,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "id": 24387,
+            "nodeType": "FunctionDefinition",
+            "src": "1255:77:16",
+            "body": {
+              "id": 24386,
+              "nodeType": "Block",
+              "src": "1305:27:16",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 24384,
+                    "name": "fee",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 24315,
+                    "src": "1322:3:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 24383,
+                  "id": 24385,
+                  "nodeType": "Return",
+                  "src": "1315:10:16"
+                }
+              ]
+            },
+            "functionSelector": "0cda45c8",
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getfee",
+            "nameLocation": "1264:6:16",
+            "parameters": {
+              "id": 24380,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1270:2:16"
+            },
+            "returnParameters": {
+              "id": 24383,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 24382,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24387,
+                  "src": "1296:7:16",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 24381,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1296:7:16",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1295:9:16"
+            },
+            "scope": 24388,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 24311,
+              "name": "Ownable",
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 23339,
+              "src": "150:7:16"
+            },
+            "id": 24312,
+            "nodeType": "InheritanceSpecifier",
+            "src": "150:7:16"
+          }
+        ],
+        "canonicalName": "Fee",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "linearizedBaseContracts": [
+          24388,
+          23339,
+          24202
+        ],
+        "name": "Fee",
+        "nameLocation": "143:3:16",
+        "scope": 24389,
+        "usedErrors": []
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 16
+}

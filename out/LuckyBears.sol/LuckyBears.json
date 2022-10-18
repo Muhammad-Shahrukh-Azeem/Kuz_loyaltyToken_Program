@@ -1,0 +1,20 @@
+{
+  "abi": [],
+  "bytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "src/Extra/LuckyBears.sol",
+    "id": 24278,
+    "exportedSymbols": {},
+    "nodeType": "SourceUnit",
+    "src": "4865:0:15",
+    "license": "MIT"
+  },
+  "id": 15
+}
