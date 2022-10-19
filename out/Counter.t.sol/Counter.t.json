@@ -9,25 +9,25 @@
     "linkReferences": {}
   },
   "ast": {
-    "absolutePath": "src/Main.sol",
-    "id": 18736,
+    "absolutePath": "test/Counter.t.sol",
+    "id": 2,
     "exportedSymbols": {},
     "nodeType": "SourceUnit",
-    "src": "39:4369:16",
+    "src": "39:3696:0",
     "nodes": [
       {
-        "id": 18735,
+        "id": 1,
         "nodeType": "PragmaDirective",
-        "src": "39:23:16",
+        "src": "39:23:0",
         "literals": [
           "solidity",
           "^",
           "0.8",
-          ".7"
+          ".9"
         ]
       }
     ],
     "license": "UNLICENSED"
   },
-  "id": 16
+  "id": 0
 }

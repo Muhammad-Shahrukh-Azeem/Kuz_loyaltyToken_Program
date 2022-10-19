@@ -635,8 +635,8 @@
       }
     },
     "script/Counter.s.sol": {
-      "lastModificationDate": 1664964845056,
-      "contentHash": "d13d078904a34f2da3ab18e366644219",
+      "lastModificationDate": 1666163280321,
+      "contentHash": "3e52e4d4c5b9f7ac3856e8f2a6f97ba9",
       "sourceName": "script/Counter.s.sol",
       "solcConfig": {
         "settings": {
@@ -670,7 +670,47 @@
         "lib/forge-std/src/StdJson.sol",
         "lib/forge-std/src/Vm.sol",
         "lib/forge-std/src/console.sol",
-        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/console2.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "CounterScript": {
+          "0.8.14+commit.80d49f37.Linux.gcc": "Counter.s.sol/CounterScript.json"
+        }
+      }
+    },
+    "src/Controller.sol": {
+      "lastModificationDate": 1666172656234,
+      "contentHash": "b8483bbac10155db53b50cfc038ff425",
+      "sourceName": "src/Controller.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
         "node_modules/@openzeppelin/contracts/access/Ownable.sol",
         "node_modules/@openzeppelin/contracts/security/Pausable.sol",
         "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
@@ -681,13 +721,12 @@
         "node_modules/@openzeppelin/contracts/utils/Counters.sol",
         "src/Fee.sol",
         "src/Loyalty.sol",
-        "src/Main.sol",
         "src/PhoneBotToken.sol"
       ],
-      "versionRequirement": "^0.8.13",
+      "versionRequirement": "^0.8.7",
       "artifacts": {
-        "CounterScript": {
-          "0.8.14+commit.80d49f37.Linux.gcc": "Counter.s.sol/CounterScript.json"
+        "Controller": {
+          "0.8.14+commit.80d49f37.Linux.gcc": "Controller.sol/Controller.json"
         }
       }
     },
@@ -815,8 +854,8 @@
       }
     },
     "src/Main.sol": {
-      "lastModificationDate": 1665817113260,
-      "contentHash": "fafc2acaada4afa234116be160ce4570",
+      "lastModificationDate": 1666163299245,
+      "contentHash": "3b88066dd82d8c67286e8008716aab82",
       "sourceName": "src/Main.sol",
       "solcConfig": {
         "settings": {
@@ -845,19 +884,7 @@
           "libraries": {}
         }
       },
-      "imports": [
-        "node_modules/@openzeppelin/contracts/access/Ownable.sol",
-        "node_modules/@openzeppelin/contracts/security/Pausable.sol",
-        "node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol",
-        "node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol",
-        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol",
-        "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
-        "node_modules/@openzeppelin/contracts/utils/Context.sol",
-        "node_modules/@openzeppelin/contracts/utils/Counters.sol",
-        "src/Fee.sol",
-        "src/Loyalty.sol",
-        "src/PhoneBotToken.sol"
-      ],
+      "imports": [],
       "versionRequirement": "^0.8.7",
       "artifacts": {
         "Main": {
@@ -866,8 +893,8 @@
       }
     },
     "src/PhoneBotToken.sol": {
-      "lastModificationDate": 1665492165529,
-      "contentHash": "d812b0603dff80dc084cb05596a35a9b",
+      "lastModificationDate": 1666172591569,
+      "contentHash": "cdc32754b0f30266d6fdaab956f8f773",
       "sourceName": "src/PhoneBotToken.sol",
       "solcConfig": {
         "settings": {
@@ -912,10 +939,10 @@
         }
       }
     },
-    "test/Counter.t.sol": {
-      "lastModificationDate": 1665821757388,
-      "contentHash": "56b32524049bf055e8ad30ca83f58a5d",
-      "sourceName": "test/Counter.t.sol",
+    "test/ControllerTest.t.sol": {
+      "lastModificationDate": 1666172703154,
+      "contentHash": "58fb30286f324d878ad9769e190fa4ae",
+      "sourceName": "test/ControllerTest.t.sol",
       "solcConfig": {
         "settings": {
           "optimizer": {
@@ -959,15 +986,54 @@
         "node_modules/@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol",
         "node_modules/@openzeppelin/contracts/utils/Context.sol",
         "node_modules/@openzeppelin/contracts/utils/Counters.sol",
+        "src/Controller.sol",
         "src/Fee.sol",
         "src/Loyalty.sol",
-        "src/Main.sol",
         "src/PhoneBotToken.sol"
       ],
       "versionRequirement": "^0.8.9",
       "artifacts": {
-        "MainTest": {
-          "0.8.14+commit.80d49f37.Linux.gcc": "Counter.t.sol/MainTest.json"
+        "ControllerTest": {
+          "0.8.14+commit.80d49f37.Linux.gcc": "ControllerTest.t.sol/ControllerTest.json"
+        }
+      }
+    },
+    "test/MainTest.t.sol": {
+      "lastModificationDate": 1666164303735,
+      "contentHash": "9c41fdf5de24465ebd332a15b617e673",
+      "sourceName": "test/MainTest.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.9",
+      "artifacts": {
+        "MainTest.t": {
+          "0.8.14+commit.80d49f37.Linux.gcc": "MainTest.t.sol/MainTest.t.json"
         }
       }
     }
