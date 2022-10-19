@@ -97,7 +97,7 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         address from,
         address to,
         uint256 amount
-    ) public onlyTeam {
+    ) public onlyAllowedContracts {
         if (balanceOf(from) < amount) {
             revert Insufficient_Balance();
         }
@@ -139,7 +139,7 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         if (teamAccessRecord[_member]) {
             revert AlreadyRemoved();
         }
-        teamAccessRecord[_member] = false;
+        teamAccessRecord[_member] = true;
     }
 
     /**

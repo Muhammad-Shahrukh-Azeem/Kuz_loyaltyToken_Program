@@ -680,8 +680,8 @@
       }
     },
     "src/Controller.sol": {
-      "lastModificationDate": 1666172656234,
-      "contentHash": "b8483bbac10155db53b50cfc038ff425",
+      "lastModificationDate": 1666173669134,
+      "contentHash": "2f237c6f2ff725093cffe56d240536e4",
       "sourceName": "src/Controller.sol",
       "solcConfig": {
         "settings": {
@@ -893,8 +893,8 @@
       }
     },
     "src/PhoneBotToken.sol": {
-      "lastModificationDate": 1666172591569,
-      "contentHash": "cdc32754b0f30266d6fdaab956f8f773",
+      "lastModificationDate": 1666174206499,
+      "contentHash": "562ff06a99c9c183bc7255d8f604affd",
       "sourceName": "src/PhoneBotToken.sol",
       "solcConfig": {
         "settings": {
@@ -940,8 +940,8 @@
       }
     },
     "test/ControllerTest.t.sol": {
-      "lastModificationDate": 1666172703154,
-      "contentHash": "58fb30286f324d878ad9769e190fa4ae",
+      "lastModificationDate": 1666174264134,
+      "contentHash": "30edc4d6090123c7547cafc9d51a1013",
       "sourceName": "test/ControllerTest.t.sol",
       "solcConfig": {
         "settings": {

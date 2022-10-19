@@ -12,7 +12,7 @@ contract Controller is Fee, Loyalty, Pausable {
 
     PhoneBotToken pb;
 
-    uint256 public lockTIme;
+    // uint256 public lockTIme;
     address public taxCollector;
 
     error AddressAndAmountLengthInvalid();
@@ -128,5 +128,9 @@ contract Controller is Fee, Loyalty, Pausable {
         returns (address)
     {
         return taxCollector;
+    }
+
+    function getBalance(address _user) public view returns(uint){
+        return pb.balanceOf(_user);
     }
 }
