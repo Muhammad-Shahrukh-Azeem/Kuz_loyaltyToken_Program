@@ -96,7 +96,41 @@ contract ControllerTest is Test {
         assertEq(controller.getBalance(address(4)), transferedAmount);
         console.log("Amount Transfered: ", controller.getBalance(address(4)));
         assertEq(controller.getBalance(address(10)), feeAmount);
-        console.log("Amount Deducted As Fee: ", controller.getBalance(address(10)));
+        console.log(
+            "Amount Deducted As Fee: ",
+            controller.getBalance(address(10))
+        );
+    }
+
+    function testburnOnPurchase(uint256 _amount) public {
+        vm.assume(_amount < 10000 && _amount > 0);
+        vm.startPrank(address(1));
+        Pb.addTeamAddress(address(2));
+        Pb.addContractAddress(address(controller));
+        assert(Pb.teamAccessRecord(address(2)));
+        vm.stopPrank();
+
+        vm.startPrank(address(2));
+        uint256 before = controller.getBalance(address(3));
+        controller.simpleMint(address(3), _amount);
+        console.log("Balance of address 3 is:", controller.getBalance(address(3)));
+        vm.stopPrank();
+
+        vm.startPrank(address(3));
+        
+        console.log("Approved:",  Pb.approve(address(controller), _amount));
+        vm.stopPrank();
+
+        console.log("Allowance:",Pb.allowance(address(3), address(controller)));
+        console.log(
+            "Allowance to spend",
+            controller.allowance(address(3), address(controller))
+        );
+
+        vm.startPrank(address(2));
+        controller.burnOnPurchase(address(3), _amount);
+        uint256 afterr = controller.getBalance(address(3));
+        assertEq(before, afterr);
     }
 
     //     function testBatchMinting() public {
@@ -114,30 +148,5 @@ contract ControllerTest is Test {
     //         assertEq(main.balanceOf(address(7)),300);
     //         assertEq(main.balanceOf(address(8)),400);
     //         console.log("SuccessFully transferred");
-    //     }
-
-    //     function testburnOnPurchase(uint _amount) public {
-    //         vm.assume(_amount < 10000);
-    //         vm.startPrank(address(1));
-    //         main.addTeamAddress(address(2));
-    //         assert(main.getIsTeamMember(address(2)));
-    //         vm.stopPrank();
-
-    //         vm.startPrank(address(2));
-    //         uint before = main.balanceOf(address(3));
-    //         main.mint(address(3), _amount);
-    //         vm.stopPrank();
-
-    //         vm.startPrank(address(3));
-    //         main.approve(address(2), _amount);
-    //         vm.stopPrank();
-
-    //         console.log("Allowance to spend", main.allowance(address(3), address(2)));
-
-    //         vm.startPrank(address(2));
-    //         main.burnOnPurchase(_amount, address(3));
-    //         uint afterr = main.balanceOf(address(3));
-    //         assertEq(before, afterr);
-
     //     }
 }

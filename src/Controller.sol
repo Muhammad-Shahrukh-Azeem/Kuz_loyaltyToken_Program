@@ -37,6 +37,233 @@ contract Controller is Fee, Loyalty, Pausable {
         _;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// IMPLEMENT A BUYING FEATURE IN THE CONTRACT SO THAT A USER CAN PURCHASE A TOKEN AT A CERTAIN PRICE
+// THAT FUNCTION CAN BE DISABLED OR ENABLED
+// THEN WRITE SOME FINAL TESTS AND DEPLOY ON POLYGON
+// WORK ON SCRIPTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * @notice Method for security to ensure that address is not of a contract
      * @param _addr input address
@@ -95,7 +322,7 @@ contract Controller is Fee, Loyalty, Pausable {
 
     // CALL APPROVE BEFORE CALLING THIS FUNCTION, approval will be for teammember
 
-    function burnOnPurchase(uint256 _amount, address _user)
+    function burnOnPurchase(address _user, uint256 _amount)
         external
         checkOnlyTeam
         whenNotPaused
@@ -135,12 +362,9 @@ contract Controller is Fee, Loyalty, Pausable {
         return taxCollector;
     }
 
-    function approve(address spender, uint256 amount) public {
-        if (!pb.allowNativeFunctionality()) {
-            revert ThisAintAllowedYet();
-        }
-        pb.approve(spender, amount);
-    }
+    // function approve(address spender, uint256 amount) public returns(bool){
+    //     return pb.approve(spender, amount);
+    // }
 
     function transfer(address to, uint256 amount) public {
         if (!pb.allowNativeFunctionality()) {
@@ -162,5 +386,13 @@ contract Controller is Fee, Loyalty, Pausable {
 
     function getBalance(address _user) public view returns (uint256) {
         return pb.balanceOf(_user);
+    }
+
+    function allowance(address _owner, address _spender) public view returns(uint) {
+        return pb.allowance(_owner, _spender);
+    }
+
+    function burn(uint amount) public {
+        pb.burn(amount);
     }
 }

@@ -48,6 +48,10 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         _unpause();
     }
 
+    function burn(uint256 amount) public virtual override onlyAllowedContracts{
+        _burn(_msgSender(), amount);
+    }
+
     function mint(address to, uint256 amount) public onlyTeam whenNotPaused {
         _mint(to, amount);
     }
@@ -123,7 +127,6 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         public
         virtual
         override
-        onlyAllowedContracts
         returns (bool)
     {
         address sender = _msgSender();
