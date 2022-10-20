@@ -22,6 +22,7 @@ contract Controller is Fee, Loyalty, Pausable {
     error cannotBeContract();
     error AlreadyAdded();
     error CannotBeAddressZero();
+    error ThisAintAllowedYet();
 
     event TokenRewarded(address to, uint256 amount);
 
@@ -46,6 +47,10 @@ contract Controller is Fee, Loyalty, Pausable {
             size := extcodesize(_addr)
         }
         return size > 0;
+    }
+
+    function simpleMint(address _to, uint256 _amount) public checkOnlyTeam {
+        pb.mintForContract(_to, _amount);
     }
 
     /**
@@ -130,7 +135,32 @@ contract Controller is Fee, Loyalty, Pausable {
         return taxCollector;
     }
 
-    function getBalance(address _user) public view returns(uint){
+    function approve(address spender, uint256 amount) public {
+        if (!pb.allowNativeFunctionality()) {
+            revert ThisAintAllowedYet();
+        }
+        pb.approve(spender, amount);
+    }
+
+    function transfer(address to, uint256 amount) public {
+        if (!pb.allowNativeFunctionality()) {
+            revert ThisAintAllowedYet();
+        }
+        pb.transfer(to, amount);
+    }
+
+    function transferFrom(
+        address from,
+        address to,
+        uint256 amount
+    ) public {
+        if (!pb.allowNativeFunctionality()) {
+            revert ThisAintAllowedYet();
+        }
+        pb.transferFrom(from, to, amount);
+    }
+
+    function getBalance(address _user) public view returns (uint256) {
         return pb.balanceOf(_user);
     }
 }

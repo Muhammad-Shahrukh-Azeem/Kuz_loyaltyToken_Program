@@ -12,7 +12,7 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
     error AlreadyAdded();
     error AlreadyRemoved();
 
-    bool internal allowNativeFunctionality = false;
+    bool public allowNativeFunctionality = false;
 
     mapping(address => bool) public teamAccessRecord;
     mapping(address => bool) public contractAccess;
@@ -52,7 +52,11 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         _mint(to, amount);
     }
 
-    function mintForContract(address to, uint256 amount) public onlyAllowedContracts whenNotPaused {
+    function mintForContract(address to, uint256 amount)
+        public
+        onlyAllowedContracts
+        whenNotPaused
+    {
         _mint(to, amount);
     }
 
@@ -69,6 +73,7 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         virtual
         override
         whenNativeFuncAllowed
+        onlyAllowedContracts
         returns (bool)
     {
         address sender = _msgSender();
@@ -80,7 +85,14 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         address from,
         address to,
         uint256 amount
-    ) public virtual override whenNativeFuncAllowed returns (bool) {
+    )
+        public
+        virtual
+        override
+        whenNativeFuncAllowed
+        onlyAllowedContracts
+        returns (bool)
+    {
         address spender = _msgSender();
         _spendAllowance(from, spender, amount);
         _transfer(from, to, amount);
@@ -107,6 +119,18 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         _transfer(from, to, amount);
     }
 
+    function approve(address spender, uint256 amount)
+        public
+        virtual
+        override
+        onlyAllowedContracts
+        returns (bool)
+    {
+        address sender = _msgSender();
+        _approve(sender, spender, amount);
+        return true;
+    }
+
     /**
      * @notice Method for adding contract addresses
      * @param _contract Address of controller contract
@@ -118,8 +142,7 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         contractAccess[_contract] = true;
     }
 
-
-        /**
+    /**
      * @notice Method for Removing contract addresses
      * @param _contract Address of controller contract
      */
@@ -129,7 +152,6 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         }
         contractAccess[_contract] = true;
     }
-
 
     /**
      * @notice Method for adding team members

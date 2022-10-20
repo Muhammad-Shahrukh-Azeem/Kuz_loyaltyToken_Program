@@ -680,8 +680,8 @@
       }
     },
     "src/Controller.sol": {
-      "lastModificationDate": 1666173669134,
-      "contentHash": "2f237c6f2ff725093cffe56d240536e4",
+      "lastModificationDate": 1666261604850,
+      "contentHash": "348b3639630aa07438a0c1ea9d82e72b",
       "sourceName": "src/Controller.sol",
       "solcConfig": {
         "settings": {
@@ -940,8 +940,8 @@
       }
     },
     "test/ControllerTest.t.sol": {
-      "lastModificationDate": 1666174264134,
-      "contentHash": "30edc4d6090123c7547cafc9d51a1013",
+      "lastModificationDate": 1666263069514,
+      "contentHash": "09b3b7d24dd68303ddb404c3ce48c16f",
       "sourceName": "test/ControllerTest.t.sol",
       "solcConfig": {
         "settings": {

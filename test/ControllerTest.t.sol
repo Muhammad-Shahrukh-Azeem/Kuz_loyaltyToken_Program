@@ -47,18 +47,29 @@ contract ControllerTest is Test {
         assert(!Pb.teamAccessRecord(_team));
     }
 
-    // function testContractControl() public {
-    //     vm.startPrank(address(1));
-    //     Pb.addTeamAddress(address(2));
-    //     Pb.addContractAddress(address(controller));
-    //     assert(Pb.teamAccessRecord(address(2)));
-    //     vm.stopPrank();
+    function testContractControl() public {
+        vm.startPrank(address(1));
+        Pb.addTeamAddress(address(2));
+        vm.stopPrank();
 
-    //     vm.startPrank(address(2));
-    //     // controller.shit(address(5), 500);
-    //     controller.batchMinting(testAddresses, tokenValues);
-    //     // Pb.mint(address(3),100);
-    // }
+        vm.startPrank(address(2));
+        vm.expectRevert(bytes("This contract Not Allowed"));
+        controller.simpleMint(address(6), 69);
+        vm.stopPrank();
+
+        vm.startPrank(address(1));
+        Pb.addContractAddress(address(controller));
+        assert(Pb.teamAccessRecord(address(2)));
+        vm.stopPrank();
+        // vm.startPrank(address(2));
+        // controller.batchMinting(testAddresses, tokenValues);
+    }
+
+    function testTeamControl() public {
+        vm.expectRevert(bytes("You are not part of team"));
+        vm.startPrank(address(2));
+        controller.simpleMint(address(2), 50);
+    }
 
     function testTransferTokenOutside(uint256 _amount) public {
         vm.assume(_amount < 10000);
@@ -83,7 +94,9 @@ contract ControllerTest is Test {
         uint256 transferPercentage = 10000 - fee;
         uint256 transferedAmount = (_amount * transferPercentage) / 10000;
         assertEq(controller.getBalance(address(4)), transferedAmount);
+        console.log("Amount Transfered: ", controller.getBalance(address(4)));
         assertEq(controller.getBalance(address(10)), feeAmount);
+        console.log("Amount Deducted As Fee: ", controller.getBalance(address(10)));
     }
 
     //     function testBatchMinting() public {
