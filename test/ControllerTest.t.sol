@@ -84,7 +84,7 @@ contract ControllerTest is Test {
 
         vm.startPrank(address(2));
         Pb.mint(address(3), 10000);
-        assertEq(controller.getBalance(address(3)), 10000);
+        assertEq(controller.balanceOf(address(3)), 10000);
         vm.stopPrank();
 
         vm.startPrank(address(3));
@@ -93,12 +93,12 @@ contract ControllerTest is Test {
         uint256 feeAmount = (_amount * fee) / 10000;
         uint256 transferPercentage = 10000 - fee;
         uint256 transferedAmount = (_amount * transferPercentage) / 10000;
-        assertEq(controller.getBalance(address(4)), transferedAmount);
-        console.log("Amount Transfered: ", controller.getBalance(address(4)));
-        assertEq(controller.getBalance(address(10)), feeAmount);
+        assertEq(controller.balanceOf(address(4)), transferedAmount);
+        console.log("Amount Transfered: ", controller.balanceOf(address(4)));
+        assertEq(controller.balanceOf(address(10)), feeAmount);
         console.log(
             "Amount Deducted As Fee: ",
-            controller.getBalance(address(10))
+            controller.balanceOf(address(10))
         );
     }
 
@@ -111,17 +111,23 @@ contract ControllerTest is Test {
         vm.stopPrank();
 
         vm.startPrank(address(2));
-        uint256 before = controller.getBalance(address(3));
+        uint256 before = controller.balanceOf(address(3));
         controller.simpleMint(address(3), _amount);
-        console.log("Balance of address 3 is:", controller.getBalance(address(3)));
+        console.log(
+            "Balance of address 3 is:",
+            controller.balanceOf(address(3))
+        );
         vm.stopPrank();
 
         vm.startPrank(address(3));
-        
-        console.log("Approved:",  Pb.approve(address(controller), _amount));
+
+        console.log("Approved:", Pb.approve(address(controller), _amount));
         vm.stopPrank();
 
-        console.log("Allowance:",Pb.allowance(address(3), address(controller)));
+        console.log(
+            "Allowance:",
+            Pb.allowance(address(3), address(controller))
+        );
         console.log(
             "Allowance to spend",
             controller.allowance(address(3), address(controller))
@@ -129,8 +135,25 @@ contract ControllerTest is Test {
 
         vm.startPrank(address(2));
         controller.burnOnPurchase(address(3), _amount);
-        uint256 afterr = controller.getBalance(address(3));
+        uint256 afterr = controller.balanceOf(address(3));
         assertEq(before, afterr);
+    }
+
+    function testBuyFeature(uint quantity) public {
+        vm.assume(quantity != 0 && quantity <= 10000000);
+        vm.startPrank(address(1));
+        Pb.addContractAddress(address(controller));
+        Pb.enablePurchaseToken();
+        vm.stopPrank();
+
+        vm.startPrank(address(3));
+        vm.deal(address(3), 100 ether);
+        uint256 price = Pb.tokenPrice();
+        // console.log(price);
+        uint256 totalCost = price * quantity;
+        // console.log(totalCost);
+        controller.buyTokens{value: totalCost}(address(3), quantity);
+        assertEq(controller.balanceOf(address(3)), quantity);
     }
 
     //     function testBatchMinting() public {

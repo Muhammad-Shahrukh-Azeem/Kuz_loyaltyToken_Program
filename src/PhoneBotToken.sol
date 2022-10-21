@@ -13,9 +13,16 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
     error AlreadyRemoved();
 
     bool public allowNativeFunctionality = false;
+    bool public allowPurchaseToken = false;
+    uint256 public tokenPrice = 1000;
 
     mapping(address => bool) public teamAccessRecord;
     mapping(address => bool) public contractAccess;
+
+    modifier isEnabled() {
+        require(allowPurchaseToken, "This isn't enabled yet");
+        _;
+    }
 
     modifier onlyTeam() {
         require(teamAccessRecord[msg.sender], "You are not part of team");
@@ -36,8 +43,20 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         _mint(msg.sender, 100 * 10**decimals());
     }
 
-    function setNativeFunctionality(bool _permission) external onlyOwner {
-        allowNativeFunctionality = _permission;
+    function enableNativeFunctionality() external onlyOwner {
+        allowNativeFunctionality = true;
+    }
+
+    function disableNativeFunctionality() external onlyOwner {
+        allowNativeFunctionality = false;
+    }
+
+    function enablePurchaseToken() external onlyOwner {
+        allowPurchaseToken = true;
+    }
+
+    function disablePurchaseToken() external onlyOwner {
+        allowPurchaseToken = false;
     }
 
     function pause() public onlyOwner {
@@ -48,13 +67,39 @@ contract PhoneBotToken is ERC20, ERC20Burnable, Pausable, Ownable {
         _unpause();
     }
 
-    function burn(uint256 amount) public virtual override onlyAllowedContracts{
+    function burn(uint256 amount) public virtual override onlyAllowedContracts {
         _burn(_msgSender(), amount);
     }
 
+    /**
+     * @notice method for purchasing tokens only ascessable by approved contracts
+     * @param to address where tokens needs to be send
+     * @param amount the quantity of tokens purchased
+     */
+    function buyToken(address to, uint256 amount)
+        external
+        payable
+        isEnabled
+        onlyAllowedContracts
+    {
+        _mint(to, amount);
+    }
+
+    /**
+     * @notice method for purchasing tokens only ascessable by team members
+     * @param to address where tokens needs to be send
+     * @param amount the quantity of tokens purchased
+     */
     function mint(address to, uint256 amount) public onlyTeam whenNotPaused {
         _mint(to, amount);
     }
+
+    /**
+     * @notice method for purchasing tokens only ascessable by controller contracts
+     * This function will be called to reward tokens
+     * @param to address where tokens needs to be send
+     * @param amount the quantity of tokens purchased
+     */
 
     function mintForContract(address to, uint256 amount)
         public

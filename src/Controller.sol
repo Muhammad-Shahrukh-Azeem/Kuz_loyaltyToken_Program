@@ -37,233 +37,6 @@ contract Controller is Fee, Loyalty, Pausable {
         _;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// IMPLEMENT A BUYING FEATURE IN THE CONTRACT SO THAT A USER CAN PURCHASE A TOKEN AT A CERTAIN PRICE
-// THAT FUNCTION CAN BE DISABLED OR ENABLED
-// THEN WRITE SOME FINAL TESTS AND DEPLOY ON POLYGON
-// WORK ON SCRIPTS
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     /**
      * @notice Method for security to ensure that address is not of a contract
      * @param _addr input address
@@ -316,9 +89,11 @@ contract Controller is Fee, Loyalty, Pausable {
         }
     }
 
-    // function shit(address x, uint y) public checkOnlyTeam {
-    //     pb.mintForContract(x, y);
-    // }
+    function buyTokens(address to, uint amount) public payable {
+        uint tokenPrice = pb.tokenPrice();
+        require(msg.value >= (amount * tokenPrice), "Insuffcient funds");
+        pb.buyToken(to, amount);
+    }
 
     // CALL APPROVE BEFORE CALLING THIS FUNCTION, approval will be for teammember
 
@@ -384,15 +159,19 @@ contract Controller is Fee, Loyalty, Pausable {
         pb.transferFrom(from, to, amount);
     }
 
-    function getBalance(address _user) public view returns (uint256) {
+    function balanceOf(address _user) public view returns (uint256) {
         return pb.balanceOf(_user);
     }
 
-    function allowance(address _owner, address _spender) public view returns(uint) {
+    function allowance(address _owner, address _spender)
+        public
+        view
+        returns (uint256)
+    {
         return pb.allowance(_owner, _spender);
     }
 
-    function burn(uint amount) public {
+    function burn(uint256 amount) public {
         pb.burn(amount);
     }
 }
